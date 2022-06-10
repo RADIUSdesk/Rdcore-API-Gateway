@@ -1,0 +1,13 @@
+[Unit]
+Description=Ampcore API Gateway
+Documentation=https://radiusdesk.com
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/opt/Rdcore-API-Gateway/start-gateway.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

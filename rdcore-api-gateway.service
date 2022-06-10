@@ -1,5 +1,5 @@
 [Unit]
-Description=Ampcore API Gateway
+Description=Rdcore API Gateway
 Documentation=https://radiusdesk.com
 After=network.target
 

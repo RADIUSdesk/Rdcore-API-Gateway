@@ -23,9 +23,11 @@ client.on('connect', function () {
 });
 
 client.on('message', function (topic, payload) {
-
-    var data = JSON.parse((payload.toString()));
-
+	var p_string = payload.toString();
+	if(p_string === ''){
+	    return;   
+	}
+	var data = JSON.parse(payload.toString());
     // Config Fetched
     switch (data.status) {
         case 'config_fetched':
@@ -104,7 +106,7 @@ router.post('/mesh/command', function(req, res){
     var message = JSON.stringify(data);
 	console.log(message);
     client.publish('/RD/MESH/' + data.node_id + '/COMMAND', message);
-    console.log("Published command to Mesh node: " + data.mac);
+    console.log("Published command to Mesh node: " + data.mac + " MODE "+data.mode);
     res.json(message);
 });
 
@@ -114,7 +116,7 @@ router.post('/ap/command', function(req, res){
     var message = JSON.stringify(data);
 	console.log(message);
     client.publish('/RD/AP/' + data.ap_id + '/COMMAND', message);
-    console.log("Published command to AP: " + data.mac);
+    console.log("Published command to AP: " + data.mac+ " MODE "+data.mode);
     res.json(message);
 });
 

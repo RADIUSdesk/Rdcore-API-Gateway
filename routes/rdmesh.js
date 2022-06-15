@@ -98,13 +98,23 @@ router.post('/config', function(req, res){
     res.json(message);
 });
 
-router.post('/node/command', function(req, res){
-        //var data = JSON.parse(req.body.message);
-        var data = req.body.message;
+router.post('/mesh/command', function(req, res){
+    //var data = JSON.parse(req.body.message);
+    var data = req.body.message;
     var message = JSON.stringify(data);
 	console.log(message);
-    client.publish('/RD/NODE/' + data.mesh_id + '/COMMAND', message);
-    console.log("Published command to node: " + data.mac);
+    client.publish('/RD/MESH/' + data.node_id + '/COMMAND', message);
+    console.log("Published command to Mesh node: " + data.mac);
+    res.json(message);
+});
+
+router.post('/ap/command', function(req, res){
+    //var data = JSON.parse(req.body.message);
+    var data = req.body.message;
+    var message = JSON.stringify(data);
+	console.log(message);
+    client.publish('/RD/AP/' + data.ap_id + '/COMMAND', message);
+    console.log("Published command to AP: " + data.mac);
     res.json(message);
 });
 

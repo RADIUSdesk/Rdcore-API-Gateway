@@ -72,7 +72,7 @@ client.on('message', function (topic, payload) {
 	    break;	    
         default:
             request.put({
-                    url: mesh_controller + '/cake3/rd_cake/node-actions/node_command.json',
+                    url: mesh_controller + '/cake3/rd_cake/node-actions/node-command.json',
                     form: data
                 },
                 function (err, res, body) {

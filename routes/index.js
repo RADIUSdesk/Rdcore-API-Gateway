@@ -3,7 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'RADIUSdesk API Gateway' });
+    const d = new Date();
+    d.toString();
+  res.render('index', { title: 'RADIUSdesk API Gateway',time_now: d });
 });
 
 module.exports = router;

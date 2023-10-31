@@ -32,7 +32,7 @@ client.on('message', function (topic, payload) {
     switch (data.status) {
         case 'config_fetched':
             request.put({
-                    url: mesh_controller + '/cake3/rd_cake/meshes/node_config_fetch.json',
+                    url: mesh_controller + '/cake4/rd_cake/meshes/node-config-fetch.json',
                     form: data
                 },
                 function (err, res, body) {
@@ -46,7 +46,7 @@ client.on('message', function (topic, payload) {
             break;
 	case 'fetched':
             request.put({
-	    	url: mesh_controller + '/cake3/rd_cake/node-actions/node-command.json',
+	    	url: mesh_controller + '/cake4/rd_cake/node-actions/node-command.json',
 		form: data
 	    },
 	    function (err, res, body) {
@@ -59,7 +59,7 @@ client.on('message', function (topic, payload) {
 	    break;	    
 	case 'replied':
             request.put({
-	    	url: mesh_controller + '/cake3/rd_cake/node-actions/node-reply.json',
+	    	url: mesh_controller + '/cake4/rd_cake/node-actions/node-reply.json',
 		form: data
 	    },
 	    function (err, res, body) {
@@ -72,7 +72,7 @@ client.on('message', function (topic, payload) {
 	    break;	    
         default:
             request.put({
-                    url: mesh_controller + '/cake3/rd_cake/node-actions/node-command.json',
+                    url: mesh_controller + '/cake4/rd_cake/node-actions/node-command.json',
                     form: data
                 },
                 function (err, res, body) {
